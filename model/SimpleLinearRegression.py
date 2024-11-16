@@ -8,6 +8,16 @@ class SimpleLinearRegression:
     def fit(self, X, y, max_steps=100, learning_rate=0.1):
         X = np.array(X)
         y = np.array(y)
+        
+        # Normalize X and y
+        X_mean = np.mean(X)
+        X_std = np.std(X)
+        y_mean = np.mean(y)
+        y_std = np.std(y)
+
+        X = (X - X_mean) / X_std
+        y = (y - y_mean) / y_std
+
         theta = np.zeros((2,))  # Initialize parameters
 
         def hypothesis(x, theta):
@@ -42,8 +52,8 @@ class SimpleLinearRegression:
             if step % 100 == 0:  # Print cost every 100 steps
                 print(f"Step {step}: Cost = {cost}")
 
-        self.intercept = theta[0]
-        self.slope = theta[1]
+        self.intercept = theta[0] * y_std + y_mean
+        self.slope = theta[1] * (y_std / X_std)
 
 
     def predict(self, X):
@@ -79,26 +89,4 @@ class SimpleLinearRegression:
         denom = np.sum((Y - np.mean(Y)) ** 2)
         return (1 - num / denom) * 100
 
-# Example usage
-if __name__ == "__main__":
-  
-    # Sample data
-    X = [1, 2, 3, 4, 5]
-    y = [2, 4, 5, 4, 5]
 
-    # Initialize and train the model using gradient descent
-    model = SimpleLinearRegression()
-    model.fit(X, y, max_steps=1000, learning_rate=0.01)
-
-    # Print the model parameters
-    print(f"Using Gradient Descent:")
-    print(f"Slope (b1): {model.slope}")
-    print(f"Intercept (b0): {model.intercept}")
-
-    # Make predictions
-    predictions = model.predict(X)
-    print(f"Predictions: {predictions}")
-
-    # Evaluate the model
-    r2_score = model.score(X, y)
-    print(f"R-squared: {r2_score}")
