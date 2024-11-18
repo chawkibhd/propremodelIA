@@ -11,7 +11,7 @@ origins = [
     "http://localhost:8000",
     "http://127.0.0.1:8000",
     "http://10.0.2.2:8000",
-    "http://192.168.1.100:8000",  # Replace with your local IP address
+    "http://192.168.1.100:8000",
 ]
 
 
@@ -23,8 +23,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Charger le modèle pré-entraîné
-model = joblib.load('simple_linear_regression_model.pkl')
+
+model = joblib.load('./model/simple_linear_regression_model.pkl')
 
 class PredictionRequest(BaseModel):
     superficie: float
