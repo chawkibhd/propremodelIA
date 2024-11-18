@@ -66,7 +66,9 @@ class SimpleLinearRegression:
 
     @staticmethod
     def r2_score(Y, Y_):
+        #sce e pour expliquer
         num = np.sum((Y - Y_) ** 2)
+        #sct t pour totale
         denom = np.sum((Y - np.mean(Y)) ** 2)
         return (1 - num / denom) * 100
 
