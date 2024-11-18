@@ -27,9 +27,9 @@ PropreModelia helps users predict land prices using a machine learning model hos
    git clone https://github.com/your-repo/propremodelia.git
    ```
 2. **Install and run the backend:**
-   Follow the [Backend](#backend) instructions.
+   Follow the [Backend](backend/README.md) instructions.
 3. **Install and run the frontend:**
-   Follow the [Frontend](#frontend) instructions.
+   Follow the [Frontend](frontend/README.md) instructions.
 
 ---
 
