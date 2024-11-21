@@ -47,8 +47,8 @@ PropreModelia helps users predict land prices using a machine learning model hos
 
 ### Backend
 - Python
-- Flask (or FastAPI)
-- Machine Learning (e.g., Scikit-learn, TensorFlow, or PyTorch)
+- FastAPI
+- Custom Machine Learning Model
 
 ### Frontend
 - React (with Next.js)
