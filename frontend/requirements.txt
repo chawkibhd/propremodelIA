@@ -1,0 +1,8 @@
+fastapi
+mangum
+uvicorn
+pydantic
+fastapi
+uvicorn
+numpy
+joblib
