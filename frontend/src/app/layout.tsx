@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import "./globals.css";
 import HomeLyout from "@/components/layout/Home";
 
