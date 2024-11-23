@@ -27,7 +27,7 @@ const FormDetails = () => {
         gutterBottom
         sx={{ fontWeight: 600 }}
       >
-        Predict Land's Price
+        Predict Land&apos;s Price
       </Typography>
 
       <TextField
