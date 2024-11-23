@@ -1,7 +1,7 @@
 {
     "functions": {
         "api/server.py": {
-            "runtime": "python3.10.15"
+            "runtime": "python3.10"
         }
     }
 }
