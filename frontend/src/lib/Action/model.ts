@@ -23,8 +23,11 @@ export const getModelRespond = async (formData: FormData) => {
 
     const data = await response.json(); // Parse JSON response
     return data;
-  } catch (error: any) {
-    console.error("Failed to fetch prediction:", error);
-    throw new Error(error.message || "Network error occurred.");
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      throw new Error(error.message || "Network error occurred.");
+  } else {
+      throw new Error("An unknown error occurred.");
+  }
   }
 };
