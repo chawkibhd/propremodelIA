@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { getModelRespond } from "../Action/model";
+import { getModelRespond_Single, getModelRespond_Multi } from "../Action/model";
 
 const useHomeForm = () => {
   const [result, setResult] = useState<string>("");
@@ -16,6 +16,7 @@ const useHomeForm = () => {
 
     const formData = new FormData(event.currentTarget);
     const superficie = formData.get("superficie")?.toString();
+    const secteur = formData.get("secteur")?.toString(); // Get 'secteur' for multi-feature model
 
     if (!superficie || superficie.trim() === "") {
       setError("Please enter valid land details.");
@@ -24,7 +25,16 @@ const useHomeForm = () => {
     }
 
     try {
-      const data = await getModelRespond(formData);
+      let data;
+
+      if (secteur && secteur.trim() !== "") {
+        // Use multi-feature prediction if 'secteur' is provided
+        data = await getModelRespond_Multi(formData);
+      } else {
+        // Use single-feature prediction if only 'superficie' is provided
+        data = await getModelRespond_Single(formData);
+      }
+
       setResult(data?.predicted_price || "No value returned.");
     } catch (err: unknown) {
       if (err instanceof Error) {

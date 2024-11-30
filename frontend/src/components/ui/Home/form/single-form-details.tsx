@@ -6,7 +6,7 @@ import useHomeForm from "@/lib/hooks/use-home-forms";
 import formatPrice from "@/lib/utils/format-price";
 
 
-const FormDetails = () => {
+const SingleFeatureForm = () => {
 
     const { result, error, isLoading, handleSubmit } = useHomeForm()
 
@@ -33,9 +33,10 @@ const FormDetails = () => {
       <TextField
         id="land_input"
         name="superficie"
-        label="Enter Superficie"
+        label="Enter Land Superficie (m²)"
         variant="outlined"
         fullWidth
+        required
       />
 
       <Button
@@ -87,4 +88,4 @@ const FormDetails = () => {
   )
 }
 
-export default FormDetails
+export default SingleFeatureForm
