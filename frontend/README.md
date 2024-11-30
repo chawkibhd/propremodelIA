@@ -177,8 +177,3 @@ frontend/
 ```typescript
 formatPrice(2500000); // Output: "2,500,000"
 ```
-
----
-
-## License
-This project is open-source and licensed under the [MIT License](LICENSE).

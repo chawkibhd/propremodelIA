@@ -184,8 +184,3 @@ Models are serialized using `joblib` and stored in the `trained_model/` folder:
 joblib.dump(model, './trained_model/simple_linear_regression_model.pkl')
 joblib.dump(model, './trained_model/multi_linear_regression_model.pkl')
 ```
-
----
-
-## License
-This project is open-source and licensed under the [MIT License](LICENSE).
